@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #04060f;
+  --bg-base: #070a14;
+  --bg-card: #0a0e1c;
+  --bg-card2: #0d1124;
+  --bg-hover: #121830;
+  --bg-panel: #080b18;
+  --accent: #00f5c4;
+  --accent-dim: rgba(0,245,196,0.12);
+  --accent-glow: rgba(0,245,196,0.25);
+  --purple: #7b68ee;
+  --purple-dim: rgba(123,104,238,0.15);
+  --red: #ff3b3b;
+  --red-dim: rgba(255,59,59,0.12);
+  --orange: #ff8c00;
+  --orange-dim: rgba(255,140,0,0.12);
+  --yellow: #ffd700;
+  --blue: #4da6ff;
+  --border: rgba(255,255,255,0.06);
+  --border-bright: rgba(255,255,255,0.12);
+  --text: #e2e8f8;
+  --text-muted: #5a6488;
+  --text-dim: #303858;
+  --font-display: 'Orbitron', monospace;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html, body, #root {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--text-dim); border-radius: 2px; }
+
+button { cursor: pointer; font-family: var(--font-ui); }
+input, textarea { font-family: var(--font-ui); }
+
+@keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3.5); opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(0,245,196,0.4); } 100% { box-shadow: 0 0 0 12px rgba(0,245,196,0); } }
+
+.animate-up { animation: slideUp 0.3s ease forwards; }
+.animate-fade { animation: fadeIn 0.4s ease; }
+.mono { font-family: var(--font-mono) !important; }
+.display { font-family: var(--font-display) !important; }
+.spinner { width: 14px; height: 14px; border: 2px solid var(--border-bright); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; flex-shrink: 0; }
+.blink { animation: blink 1.4s ease-in-out infinite; }
