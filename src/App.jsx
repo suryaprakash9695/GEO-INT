@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useCallback, useEffect } from "react";
 import "./index.css";
 
@@ -51,7 +50,7 @@ export default function App() {
       <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
         <TopBar finData={finData} prevData={prevFin} lastUpdate={lastUpdate} refetch={refetch} />
         {/* Debug button always visible */}
-        {/* <button
+        <button
           onClick={() => setShowDebug(true)}
           style={{
             position: "absolute", right: 100, top: "50%", transform: "translateY(-50%)",
@@ -64,7 +63,7 @@ export default function App() {
           }}
         >
           {keyOk ? "🔧 DEBUG" : "⚠️ FIX API KEY"}
-        </button> */}
+        </button>
       </div>
 
       {/* MAIN */}

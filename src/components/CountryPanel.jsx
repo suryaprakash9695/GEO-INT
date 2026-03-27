@@ -25,7 +25,7 @@ export default function CountryPanel({ isoCode, countryData, conflictLevel, finD
     setNewsLoading(true);
     const name = profile?.name || countryData?.name || isoCode;
     try {
-      const res = await fetch("/api/groq/openai/v1/chat/completions", {
+      const res = await fetch(import.meta.env.DEV ? "/api/groq/openai/v1/chat/completions" : "https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ Respond ONLY as valid JSON (no markdown, no extra text):
     const ctx = `GDP: ${profile?.gdp || countryData?.gdp || "N/A"}, Pop: ${profile?.pop || countryData?.population || "N/A"}, Region: ${profile?.region || countryData?.region || "N/A"}. Current conflict level: ${level}. Markets: BTC $${finData?.btc?.price?.toLocaleString()}, Oil $${finData?.oil?.price}/bbl, Gold $${finData?.gold?.price}/oz.`;
 
     try {
-      const res = await fetch("/api/groq/openai/v1/chat/completions", {
+      const res = await fetch(import.meta.env.DEV ? "/api/groq/openai/v1/chat/completions" : "https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

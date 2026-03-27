@@ -20,7 +20,7 @@ export default function DebugPanel({ onClose }) {
 
     // Try proxy first
     try {
-      const res = await fetch("/api/groq/openai/v1/chat/completions", {
+      const res = await fetch(import.meta.env.DEV ? "/api/groq/openai/v1/chat/completions" : "https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
